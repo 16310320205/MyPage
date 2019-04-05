@@ -20,9 +20,6 @@ import com.neusoft.service.CommentService;
 import com.neusoft.service.QuestionService;
 import com.neusoft.util.MD5Util;
 
-/**
- * Created by neusoft on 2016/7/24.
- */
 @Controller
 public class CommentController {
 	private static final Logger logger = LoggerFactory.getLogger(CommentController.class);

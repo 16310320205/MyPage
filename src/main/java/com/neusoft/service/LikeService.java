@@ -6,9 +6,6 @@ import org.springframework.stereotype.Service;
 import com.neusoft.util.JedisAdapter;
 import com.neusoft.util.RedisKeyUtil;
 
-/**
- * Created by nowcoder on 2016/7/30.
- */
 @Service
 public class LikeService {
 	@Autowired

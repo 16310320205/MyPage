@@ -1,8 +1,5 @@
 package com.neusoft.async;
 
-/**
- * Created by nowcoder on 2016/7/30.
- */
 public enum EventType {
 	LIKE(0), COMMENT(1), Regist(2), MAIL(3), FOLLOW(4), UNFOLLOW(5), ADD_QUESTION(6);
 

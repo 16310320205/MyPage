@@ -23,9 +23,6 @@ import com.neusoft.service.FollowService;
 import com.neusoft.service.QuestionService;
 import com.neusoft.service.UserService;
 
-/**
- * Created by neusoft on 2016/7/15.
- */
 @Controller
 public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);

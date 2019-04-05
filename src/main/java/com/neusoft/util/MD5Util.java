@@ -8,9 +8,6 @@ import org.slf4j.LoggerFactory;
 
 import com.alibaba.fastjson.JSONObject;
 
-/**
- * Created by nowcoder on 2016/7/3.
- */
 public class MD5Util {
 	private static final Logger logger = LoggerFactory.getLogger(MD5Util.class);
 

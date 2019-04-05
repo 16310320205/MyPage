@@ -9,9 +9,6 @@ import org.apache.ibatis.annotations.Select;
 
 import com.neusoft.model.Message;
 
-/**
- * Created by nowcoder on 2016/7/9.
- */
 @Mapper
 public interface MessageDao {
 	String TABLE_NAME = " message ";

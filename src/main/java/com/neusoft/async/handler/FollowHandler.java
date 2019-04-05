@@ -17,9 +17,6 @@ import com.neusoft.service.MessageService;
 import com.neusoft.service.UserService;
 import com.neusoft.util.MD5Util;
 
-/**
- * Created by neusoft on 2016/7/30.
- */
 @Component
 public class FollowHandler implements EventHandler {
 	@Autowired

@@ -19,9 +19,6 @@ import com.neusoft.service.FollowService;
 import com.neusoft.util.JedisAdapter;
 import com.neusoft.util.RedisKeyUtil;
 
-/**
- * Created by neusoft on 2016/7/15.
- */
 @Controller
 public class FeedController {
 	private static final Logger logger = LoggerFactory.getLogger(FeedController.class);

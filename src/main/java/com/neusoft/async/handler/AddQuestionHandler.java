@@ -13,9 +13,6 @@ import com.neusoft.async.EventModel;
 import com.neusoft.async.EventType;
 import com.neusoft.service.SearchService;
 
-/**
- * Created by neusoft on 2016/8/28.
- */
 @Component
 public class AddQuestionHandler implements EventHandler {
 	private static final Logger logger = LoggerFactory.getLogger(AddQuestionHandler.class);

@@ -9,9 +9,6 @@ import org.apache.ibatis.annotations.Select;
 
 import com.neusoft.model.Feed;
 
-/**
- * Created by neusoft on 2016/7/2.
- */
 @Mapper
 public interface FeedDAO {
 	String TABLE_NAME = " feed ";

@@ -10,9 +10,6 @@ import org.apache.ibatis.annotations.Update;
 
 import com.neusoft.model.Comment;
 
-/**
- * Created by nowcoder on 2016/7/2.
- */
 @Mapper
 public interface CommentDao {
 	String TABLE_NAME = " comment ";

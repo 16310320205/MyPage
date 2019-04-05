@@ -20,9 +20,6 @@ import com.neusoft.service.QuestionService;
 import com.neusoft.service.SearchService;
 import com.neusoft.service.UserService;
 
-/**
- * Created by neusoft on 2016/7/24.
- */
 @Controller
 public class SearchController {
 	private static final Logger logger = LoggerFactory.getLogger(SearchController.class);

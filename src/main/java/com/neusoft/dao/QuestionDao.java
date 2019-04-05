@@ -10,9 +10,6 @@ import org.apache.ibatis.annotations.Update;
 
 import com.neusoft.model.Question;
 
-/**
- * Created by nowcoder on 2016/7/2.
- */
 @Mapper
 public interface QuestionDao {
 	String TABLE_NAME = " question ";

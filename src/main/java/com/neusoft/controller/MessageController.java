@@ -22,9 +22,6 @@ import com.neusoft.service.MessageService;
 import com.neusoft.service.UserService;
 import com.neusoft.util.MD5Util;
 
-/**
- * Created by nowcoder on 2016/7/24.
- */
 @Controller
 public class MessageController {
 	@Autowired

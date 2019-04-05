@@ -28,9 +28,6 @@ import com.neusoft.service.QuestionService;
 import com.neusoft.service.UserService;
 import com.neusoft.util.MD5Util;
 
-/**
- * Created by nowcoder on 2016/7/30.
- */
 @Controller
 public class FollowController {
 	@Autowired

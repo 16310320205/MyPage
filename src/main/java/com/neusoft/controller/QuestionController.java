@@ -31,9 +31,6 @@ import com.neusoft.service.QuestionService;
 import com.neusoft.service.UserService;
 import com.neusoft.util.MD5Util;
 
-/**
- * Created by neusoft on 2016/7/22.
- */
 @Controller
 public class QuestionController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
