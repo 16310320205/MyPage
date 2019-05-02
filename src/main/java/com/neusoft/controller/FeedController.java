@@ -38,7 +38,7 @@ public class FeedController {
 	@RequestMapping(path = { "/pushfeeds" }, method = { RequestMethod.GET, RequestMethod.POST })
 	private String getPushFeeds(Model model) {
 		int localUserId = hostHolder.getUser() != null ? hostHolder.getUser().getId() : 0;
-		List<String> feedIds = jedisAdapter.lrange(RedisKeyUtil.getTimelineKey(localUserId), 0, 10);
+		List<String> feedIds = jedisAdapter.lrange(RedisKeyUtil.getTimelineKey(localUserId), 0, 12);
 		List<Feed> feeds = new ArrayList<Feed>();
 		for (String feedId : feedIds) {
 			Feed feed = feedService.getById(Integer.parseInt(feedId));
@@ -59,7 +59,7 @@ public class FeedController {
 			followees = followService.getFollowees(localUserId, EntityType.ENTITY_USER, Integer.MAX_VALUE);
 		}
 
-		List<Feed> feeds = feedService.getUserFeeds(Integer.MAX_VALUE, followees, 10);
+		List<Feed> feeds = feedService.getUserFeeds(Integer.MAX_VALUE, followees, 12);
 		model.addAttribute("feeds", feeds);
 		return "feeds";
 	}

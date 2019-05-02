@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import com.neusoft.model.LoginTicket;
 import com.neusoft.model.User;
 
 @Mapper
@@ -28,4 +29,7 @@ public interface UserDao {
 
 	@Select({ "select ", SELECT_FIELDS, " from ", TABLE_NAME, " where name=#{name}" })
 	User selectByName(String name);
+
+	@Select({ "select expired from login_ticket where user_id=#{id} order by expired desc limit 1" })
+	LoginTicket selectTicketById(int id);
 }

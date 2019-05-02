@@ -58,15 +58,22 @@ public class MessageController {
 	@RequestMapping(path = { "/msg/detail" }, method = { RequestMethod.GET })
 	public String getConversationDetail(Model model, @RequestParam("conversationId") String conversationId) {
 		try {
-			List<Message> messageList = messageService.getConversationDetail(conversationId, 0, 10);
+			List<Message> messageList = messageService.getConversationDetail(conversationId);
 			List<ViewObject> messages = new ArrayList<ViewObject>();
+			boolean f = false;
 			for (Message message : messageList) {
 				ViewObject vo = new ViewObject();
 				vo.set("message", message);
 				vo.set("user", userService.getUser(message.getFromId()));
 				messages.add(vo);
+				if (message.getHasRead() == 1)
+					f = true;
+				if (f == false) {
+					messageService.SetRead(message.getId(), 1);
+				}
 			}
 			model.addAttribute("messages", messages);
+
 		} catch (Exception e) {
 			logger.error("获取详情失败" + e.getMessage());
 		}

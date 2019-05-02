@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.neusoft.model.Message;
 
@@ -20,9 +21,8 @@ public interface MessageDao {
 	int addMessage(Message message);
 
 	@Select({ "select ", SELECT_FIELDS, " from ", TABLE_NAME,
-			" where conversation_id=#{conversationId} order by id desc limit #{offset}, #{limit}" })
-	List<Message> getConversationDetail(@Param("conversationId") String conversationId, @Param("offset") int offset,
-			@Param("limit") int limit);
+			" where conversation_id=#{conversationId} order by created_date desc " })
+	List<Message> getConversationDetail(@Param("conversationId") String conversationId);
 
 	@Select({ "select count(id) from ", TABLE_NAME,
 			" where has_read=0 and to_id=#{userId} and conversation_id=#{conversationId}" })
@@ -32,4 +32,7 @@ public interface MessageDao {
 			" where from_id=#{userId} or to_id=#{userId} order by id desc) tt group by conversation_id  order by created_date desc limit #{offset}, #{limit}" })
 	List<Message> getConversationList(@Param("userId") int userId, @Param("offset") int offset,
 			@Param("limit") int limit);
+
+	@Update({ "update ", TABLE_NAME, "set has_read=#{statu} where id=#{id}", })
+	void SetRead(@Param("id") int id, @Param("statu") int statu);
 }

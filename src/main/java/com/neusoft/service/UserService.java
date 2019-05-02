@@ -100,4 +100,9 @@ public class UserService {
 	public User selectByName(String name) {
 		return userDao.selectByName(name);
 	}
+
+	public LoginTicket selectTicketById(int follower) {
+
+		return userDao.selectTicketById(follower);
+	}
 }
