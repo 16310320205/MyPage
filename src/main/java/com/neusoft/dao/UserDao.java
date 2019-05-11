@@ -1,5 +1,7 @@
 package com.neusoft.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -32,4 +34,7 @@ public interface UserDao {
 
 	@Select({ "select expired from login_ticket where user_id=#{id} order by expired desc limit 1" })
 	LoginTicket selectTicketById(int id);
+
+	@Select({ "select *", " from ", TABLE_NAME })
+	List<User> getUserList();
 }

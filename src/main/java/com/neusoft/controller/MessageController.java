@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.neusoft.backstage.service.AdminService;
 import com.neusoft.model.HostHolder;
 import com.neusoft.model.Message;
 import com.neusoft.model.User;
@@ -29,6 +30,8 @@ public class MessageController {
 
 	@Autowired
 	MessageService messageService;
+	@Autowired
+	AdminService adminService;
 
 	@Autowired
 	UserService userService;
@@ -47,7 +50,11 @@ public class MessageController {
 			ViewObject vo = new ViewObject();
 			vo.set("message", message);
 			int targetId = message.getFromId() == localUserId ? message.getToId() : message.getFromId();
-			vo.set("user", userService.getUser(targetId));
+			if (targetId < 0) {
+				vo.set("user", adminService.findById(targetId));
+			} else {
+				vo.set("user", userService.getUser(targetId));
+			}
 			vo.set("unread", messageService.getConversationUnreadCount(localUserId, message.getConversationId()));
 			conversations.add(vo);
 		}
@@ -64,7 +71,12 @@ public class MessageController {
 			for (Message message : messageList) {
 				ViewObject vo = new ViewObject();
 				vo.set("message", message);
-				vo.set("user", userService.getUser(message.getFromId()));
+				if (message.getFromId() < 0) {
+					vo.set("user", adminService.findById(message.getFromId()));
+				} else {
+					vo.set("user", userService.getUser(message.getFromId()));
+				}
+
 				messages.add(vo);
 				if (message.getHasRead() == 1)
 					f = true;

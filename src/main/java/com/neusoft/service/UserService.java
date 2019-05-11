@@ -2,6 +2,7 @@ package com.neusoft.service;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.UUID;
@@ -104,5 +105,10 @@ public class UserService {
 	public LoginTicket selectTicketById(int follower) {
 
 		return userDao.selectTicketById(follower);
+	}
+
+	public List<User> getUserList() {
+
+		return userDao.getUserList();
 	}
 }
